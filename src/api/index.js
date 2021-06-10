@@ -22,7 +22,7 @@ export const fetchData = async (country) => {
 export const fetchDailyData = async () => {
   try {
     const { data } = await axios.get(
-      "https://api.covidtracking.com/v2/us/daily.json"
+      "https://shielded-spire-99894.herokuapp.com/https://api.covidtracking.com/v2/us/daily.json"
     );
 
     return data.map(({ positive, recovered, death, dateChecked: date }) => ({
