@@ -7,11 +7,11 @@ import styles from "./Chart.module.css";
 
 const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   const [dailyData, setDailyData] = useState({});
-
+  console.log(confirmed, recovered, deaths);
   useEffect(() => {
     const fetchMyAPI = async () => {
       const initialDailyData = await fetchDailyData();
-
+      console.log(initialDailyData);
       setDailyData(initialDailyData);
     };
 
@@ -49,13 +49,13 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
         ),
         datasets: [
           {
-            data: dailyData.map((data) => data.confirmed),
+            data: dailyData.map((data) => data.confirmed.total.value),
             label: "Infected",
             borderColor: "#3333ff",
             fill: true,
           },
           {
-            data: dailyData.map((data) => data.deaths),
+            data: dailyData.map((data) => data.deaths.total.value),
             label: "Deaths",
             borderColor: "red",
             backgroundColor: "rgba(255, 0, 0, 0.5)",

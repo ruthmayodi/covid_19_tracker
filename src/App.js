@@ -8,7 +8,7 @@ import covid19img from "./images/covid19img.png";
 
 class App extends React.Component {
   state = {
-    data: {},
+    data: { data: {} },
     country: "",
   };
 
@@ -26,13 +26,13 @@ class App extends React.Component {
 
   render() {
     const { data, country } = this.state;
-
+    console.log(data, country);
     return (
       <div className={styles.container}>
         <img className={styles.image} src={covid19img} alt="COVID-19" />
         <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+        <Chart data={data.data} country={country} />
       </div>
     );
   }

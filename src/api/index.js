@@ -12,7 +12,7 @@ export const fetchData = async (country) => {
   try {
     const data = await axios.get(changeableUrl);
 
-    return { data };
+    return data;
   } catch (error) {
     return error;
   }
@@ -25,10 +25,9 @@ export const fetchDailyData = async () => {
       "https://shielded-spire-99894.herokuapp.com/https://api.covidtracking.com/v2/us/daily.json"
     );
 
-    return data.map(({ positive, recovered, death, dateChecked: date }) => ({
-      confirmed: positive,
-      recovered,
-      deaths: death,
+    return data.data.map(({ cases, outcomes, date }) => ({
+      confirmed: cases,
+      deaths: outcomes.death,
       date,
     }));
   } catch (error) {
