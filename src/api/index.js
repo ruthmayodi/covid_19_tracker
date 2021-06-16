@@ -24,7 +24,7 @@ export const fetchDailyData = async () => {
     const { data } = await axios.get(
       "https://shielded-spire-99894.herokuapp.com/https://api.covidtracking.com/v2/us/daily.json"
     );
-
+    console.log(data);
     return data.data.map(({ cases, outcomes, date }) => ({
       confirmed: cases,
       deaths: outcomes.death,
