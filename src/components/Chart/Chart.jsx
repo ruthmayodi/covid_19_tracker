@@ -5,7 +5,7 @@ import { fetchDailyData } from "../../api";
 
 import styles from "./Chart.module.css";
 
-const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+const Chart = ({ data: { confirmed, recovered, deaths } = {}, country }) => {
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
