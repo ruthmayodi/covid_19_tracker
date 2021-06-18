@@ -14,37 +14,28 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } = {} }) => {
         Global
       </Typography>
       <Grid container spacing={3} justify="center">
-        <Card>
+        <Card className={styles.infected}>
           <CardContent>
-            <Typography
-              className={styles.infected}
-              cardTitle="Infected"
-              value={confirmed.value}
-              lastUpdate={lastUpdate}
-              cardSubtitle="Number of active cases from COVID-19."
-            ></Typography>
+            <Typography>Infected</Typography>
+            <Typography>{confirmed.value}</Typography>
+            <Typography>{lastUpdate}</Typography>
+            <Typography>Number of active cases from COVID-19.</Typography>
           </CardContent>
         </Card>
-        <Card>
+        <Card className={styles.recovered}>
           <CardContent>
-            <Typography
-              className={styles.recovered}
-              cardTitle="Recovered"
-              value={recovered.value}
-              lastUpdate={lastUpdate}
-              cardSubtitle="Number of recoveries from COVID-19."
-            ></Typography>
+            <Typography>Recovered</Typography>
+            <Typography>{recovered.value}</Typography>
+            <Typography>{lastUpdate}</Typography>
+            <Typography>Number of recoveries from COVID-19</Typography>
           </CardContent>
         </Card>
-        <Card>
+        <Card className={styles.deaths}>
           <CardContent>
-            <Typography
-              className={styles.deaths}
-              cardTitle="Deaths"
-              value={deaths.value}
-              lastUpdate={lastUpdate}
-              cardSubtitle="Number of deaths caused by COVID-19."
-            ></Typography>
+            <Typography>Deaths</Typography>
+            <Typography>{deaths.value}</Typography>
+            <Typography>{lastUpdate}</Typography>
+            <Typography>Number of deaths caused by COVID-19</Typography>
           </CardContent>
         </Card>
       </Grid>
